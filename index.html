@@ -1,19 +1,17 @@
-<?php $source = isset($_GET["source"]) ? "stages/".$_GET["source"].".js" : "stages/stage1.js";  ?>
-
-<!doctype html>  
-<html lang="en">  
-<head>  
-  <meta charset="utf-8">  
-  <title>Curtain Call</title>  
-  <meta name="description" content="Curtain Call, a browser bullet hell game.">  
-  <meta name="author" content="Spike">   
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Curtain Call</title>
+  <meta name="description" content="Curtain Call, a browser bullet hell game.">
+  <meta name="author" content="Spike">
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
   <script type="text/javascript" src="tools.js"></script>
-  <script type="text/javascript" src="<?php echo $source; ?>"></script> 
-  <script type="text/javascript" src="bullets.js"></script> 
-  <script type="text/javascript" src="waves.js"></script>  
-  <script type="text/javascript" src="patterns.js"></script>  
-  <script type="text/javascript" src="index.js"></script>  
+  <script type="text/javascript" src="stages/stage1.js"></script>
+  <script type="text/javascript" src="bullets.js"></script>
+  <script type="text/javascript" src="waves.js"></script>
+  <script type="text/javascript" src="patterns.js"></script>
+  <script type="text/javascript" src="index.js"></script>
 <style>
 body{
 	width: 1080px;
@@ -31,7 +29,7 @@ body{
 	background-image: url(images/stage1.png);
 }
 h1{
-	padding-left: 12px;  
+	padding-left: 12px;
 	letter-spacing: 1.05em;
 	text-transform: uppercase;
 	text-shadow: 2px 2px 7px #dedede;
@@ -95,26 +93,31 @@ a{
 	color: #bbb;
 	font-size: 1.2em;
 }
+#local-score {
+  display: none;
+}
 </style>
-</head>  
-<body> 
+</head>
+<body>
 <h1>Curtain call</h1>
 <canvas width="720" height="540" id="canvas"><p>Your browser doesn't support HTML5. To play the game, please update your browser software!</p></canvas>
 <div id="highscore">
-<span id="mode"><?php echo ((isset($_GET["source"])) ? "Development mode" : ""); ?></span>
 <p>Don't get hit by bullets! Bullets appear in different patterns and single pattern lasts for from 30 to 60 seconds. </p>
 <p><b>Controls</b></p>
 <p>Move: Arrow keys<br />
 Slow movement: Shift key<br />
 Pause: Space</p>
 <h2>Highscores</h2>
+<p>The highscore list is not updated anymore.</p>
+<p id="local-score">
+  <strong>Your best score</strong><br>
+  <span id="highscore-cleared">?</span> waves cleared.<br/>
+  <span id="highscore-deaths">?</span> deaths.<br/>
+</p>
 <div id="highscore-list"></div>
 </div>
-<div id="footer"><a href="http://spike.viuhka.fi">http://spike.viuhka.fi</a></div>
+<div id="footer"><a href="http://anttisandberg.com">Made by Spike</a></div>
 </p>
 </div>
-</body>  
+</body>
 </html>
-<?php
-
-?>
